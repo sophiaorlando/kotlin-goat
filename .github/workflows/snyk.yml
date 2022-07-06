@@ -20,10 +20,6 @@ jobs:
     steps:
       # Checkout project source
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
-          cache: 'npm'
       - name: install snyk 
         run: |
           npm install -g snyk
