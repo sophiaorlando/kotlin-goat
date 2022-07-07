@@ -42,10 +42,11 @@ class HelloController(
         // double SQL injection
         validateUser(name, name)
 
-        // TODO - XSS
+        // XSS
+        return( greetingService.greet(contents));
 
         // TODO - CSRF
-        
+
         return greetingService.greet(contents)
     }
 
