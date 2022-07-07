@@ -19,7 +19,6 @@ jobs:
         run: |
           wget https://downloads-sast.mend.io/sast-cli/linux/mendsastcli
           chmod +x mendsastcli
-          sleep 2m
       - name: Run Thunderscan
         run: |
           ./mendsastcli --app "Kotlin Goat" --report formats "html,json" --filename "report" --name "kotlin goat" --dir
