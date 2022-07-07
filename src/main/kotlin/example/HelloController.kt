@@ -32,7 +32,7 @@ class HelloController(
 ) {
 
     @Get("/hello/{name}")
-    fun hello(name: String): String {
+    fun hello(name: String): Any {
         var contents: String = ""
         File(name).forEachLine { contents += it }
 
@@ -42,9 +42,13 @@ class HelloController(
         // double SQL injection
         validateUser(name, name)
 
-        // XSS
+        // XSS - This does not trigger in thunderscan
+        // but it should I believe
         if (name.contains("test")) {
             return (greetingService.greet(name));
+        }else if( name.contains("modulo")) {
+            // This should be IDOR vuln
+            return greetingService;
         }
 
         // TODO - CSRF
