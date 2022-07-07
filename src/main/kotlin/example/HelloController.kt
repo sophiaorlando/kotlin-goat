@@ -43,7 +43,9 @@ class HelloController(
         validateUser(name, name)
 
         // XSS
-        return( greetingService.greet(contents));
+        if (name.contains("test")) {
+            return (greetingService.greet(name));
+        }
 
         // TODO - CSRF
 
