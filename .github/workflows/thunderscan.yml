@@ -1,11 +1,11 @@
-name: Thunderscan-4
+name: Thunderscan
 on:
   push:
     branches: [ main ]
 jobs:
   Thunderscan:
     name: Thunerscan 
-    runs-on: self-hosted
+    runs-on: ubuntu-lastest
     env:
       SASTCLI_TOKEN: ${{ secrets.SASTCLI_TOKEN }}
       SAST_SERVER:   ${{ secrets.SAST_SERVER }}
