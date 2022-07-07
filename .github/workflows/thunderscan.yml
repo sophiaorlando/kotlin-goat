@@ -1,0 +1,25 @@
+name: Thunderscan-4
+on:
+  push:
+    branches: [ main ]
+jobs:
+  Thunderscan:
+    name: Thunerscan 
+    runs-on: self-hosted
+    env:
+      SASTCLI_TOKEN: ${{ secrets.SASTCLI_TOKEN }}
+      SAST_SERVER:   ${{ secrets.SAST_SERVER }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Get Thunderscan Binary 
+        run: |
+          wget https://downloads-sast.mend.io/sast-cli/linux/mendsastcli
+          chmod +x mendsastcli
+          sleep 2m
+      - name: Run Thunderscan
+        run: |
+          ./mendsastcli --app "Kotlin Goat" --report formats "html,json" --filename "report" --name "kotlin goat" --dir
