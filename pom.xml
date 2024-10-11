@@ -13,7 +13,7 @@
     <exec.mainClass>example.Application</exec.mainClass>
     <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
-    <kotlinVersion>1.5.0</kotlinVersion>
+    <kotlinVersion>2.0.21</kotlinVersion>
   </properties>
   <repositories>
     <repository>
